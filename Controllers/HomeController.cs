@@ -24,8 +24,9 @@ namespace Pokemon_API.Controllers
             string responseFromServer = reader.ReadToEnd();
             JObject parsedString = JObject.Parse(responseFromServer);
             Pokemon myPokemon = parsedString.ToObject<Pokemon>();
-            Debug.WriteLine(myPokemon.moves[0].move.version_group_details);
-            return View();
+            //Debug.WriteLine(myPokemon.moves[0].move.version_group_details);
+
+            return View(myPokemon);
         }
 
         

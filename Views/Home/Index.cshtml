@@ -1,4 +1,7 @@
-﻿@{
+﻿@model Pokemon_API.Models.Pokemon
+
+@{
     ViewBag.Title = "Home Page";
 }
-
+<img src="@Model.sprites.front_default"/>
+<p><Model.name></Model.name></p>
