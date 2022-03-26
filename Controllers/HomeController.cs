@@ -1,5 +1,7 @@
 ﻿
 using Newtonsoft.Json.Linq;
+using Pokemon_API.Models;
+using System.Diagnostics;
 using System.IO;
 using System.Net;
 using System.Web.Mvc;
@@ -20,7 +22,9 @@ namespace Pokemon_API.Controllers
             StreamReader reader = new StreamReader(stream);
             //Put into string which is JSON formatted
             string responseFromServer = reader.ReadToEnd();
-            JObject Parsedstring = JObject.Parse(responseFromServer);
+            JObject parsedString = JObject.Parse(responseFromServer);
+            Pokemon myPokemon = parsedString.ToObject<Pokemon>();
+            Debug.WriteLine(myPokemon.moves[0].move.version_group_details);
             return View();
         }
 
