@@ -1,4 +1,5 @@
 ﻿
+using Newtonsoft.Json.Linq;
 using System.IO;
 using System.Net;
 using System.Web.Mvc;
@@ -19,6 +20,7 @@ namespace Pokemon_API.Controllers
             StreamReader reader = new StreamReader(stream);
             //Put into string which is JSON formatted
             string responseFromServer = reader.ReadToEnd();
+            JObject Parsedstring = JObject.Parse(responseFromServer);
             return View();
         }
 
